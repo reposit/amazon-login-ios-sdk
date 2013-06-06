@@ -1,0 +1,578 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd">
+<html>
+<head>
+<title>AIError</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="HeaderDoc">
+<meta name="xcode-display" content="render">
+<style><!--
+.toc_contents_text {
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+ul.tocSubEntryList li.tocSubEntry {
+    list-style: none;
+}
+
+#colorbox {
+		display: none;
+}
+.spec_sheet_line {
+		margin-bottom: 1px;
+}
+.collapsible {
+		display: none;
+}
+.toc_leadspace {
+		width: 10; min-width: 10;
+}
+.disclosure_triangle_td {
+		width: 14; min-width: 14;
+		font-size: 10px;
+		vertical-align: middle;
+}
+.specbox td {
+		font-size: 13px;
+}
+.specbox td a {
+		font-size: 13px;
+}
+.specbox td code {
+		font-size: 13px;
+}
+.specbox td tt {
+		font-size: 13px;
+}
+.specbox td pre {
+		font-size: 13px;
+}
+.specbox a {
+		font-size: 12px;
+}
+.disclosure_triangle_td a:hover {
+		text-decoration: none;
+}
+.disclosure_triangle_td a:hover {
+		text-decoration: none;
+}
+.hd_toc_box {
+		padding-top: 10px;
+		padding-right: 15px;
+}.tocSeparator {
+		margin-top: 15px;
+		padding-bottom: 0px;
+		margin-bottom: 0px;
+}
+.tocSubEntryList {
+		margin-left: 0px;
+		padding-left: 40px;
+		padding-top: 0px;
+		margin-top: 2px;
+		padding-bottom: 0px;
+		margin-bottom: 8px;
+}
+.hd_toc_heading_table {
+		margin-top: 2px;
+		margin-bottom: 2px;
+}
+.hd_toc_entry_table {
+		margin-top: 2px;
+		margin-bottom: 2px;
+}
+.tocSubEntry {
+		margin-left: 0px;
+		padding-left: 0px;
+		margin-top: 0px;
+		margin-bottom: 1px;
+}
+.tocSubEntry a {
+		font-size: 10pt;
+}
+.tocSubheading {
+		padding-left: 14px;
+		margin-left: 0px;
+		margin-top: 5px;
+		padding-top: 0px;
+		font-size: 16px;
+		color: #808080;
+}
+
+#tocMenu {
+		border-right: 1px solid #c0c0c0;
+		background-color: #f4f4ff;
+		top:0px;
+		left:0px;
+		width:230px;
+		height:100%;
+}
+#bodyContents {
+		width: auto;
+		padding-left: 15px;
+}
+--></style>
+<script language="JavaScript" type="text/javascript"><!--
+function getNewHTTPObject()
+{
+        var xmlhttp;
+
+        /** Special IE only code ... */
+        /*@cc_on
+          @if (@_jscript_version >= 5)
+              try
+              {
+                  xmlhttp = new ActiveXObject('Msxml2.XMLHTTP');
+              }
+              catch (e)
+              {
+                  try
+                  {
+                      xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+                  }
+                  catch (E)
+                  {
+                      xmlhttp = false;
+                  }
+             }
+          @else
+             xmlhttp = false;
+        @end @*/
+
+        /** Every other browser on the planet */
+        if (!xmlhttp && typeof XMLHttpRequest != 'undefined')
+        {
+            try
+            {
+                xmlhttp = new XMLHttpRequest();
+            }
+            catch (e)
+            {
+                xmlhttp = false;
+            }
+        }
+
+        return xmlhttp;
+}
+
+function hidetoc() {
+	var toc = document.getElementById('tocMenu');
+	var src = toc.getAttribute('src');
+	var xhr = getNewHTTPObject();
+	xhr.open('GET', src, true);
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState == 4) {
+			var toc = document.getElementById('tocMenu');
+			toc.innerHTML = xhr.responseText;
+		}
+	}
+	xhr.send(null);
+	var origURL = parent.document.URL;
+	var contentURL = origURL.substring(origURL.indexOf('?')+1, origURL.length);
+	if (contentURL.length == origURL.length) {
+		jumpPos = origURL.substring(origURL.indexOf('#')+1, origURL.length);
+	}
+	if (contentURL == "hidetoc") {
+		var body = document.getElementById('bodyContents');
+		if (toc && body) {
+			toc.style.display = 'none';
+			body.style.marginLeft = '0px';
+		}
+	}
+}
+
+function disclosure_triangle(elt) {
+   var linkelt = elt;
+   while (elt && elt.tagName != 'TABLE') { elt = elt.parentNode;}
+   if (!elt) { return; }
+   while (elt && elt.tagName != 'DIV') { elt = elt.nextSibling;}
+   if (!elt) { return; }
+   if (parseInt(linkelt.getAttribute('state'))) {
+      // It's open.  Close it
+      linkelt.innerHTML = '&#x25B7;';
+      linkelt.setAttribute('state', 0);
+      linkelt.setAttribute('class', 'closed_disclosure_triangle');
+      elt.style.display = 'none';
+   } else {
+      // It's closed.  Open it
+      linkelt.innerHTML = '&#x25BC;';
+      linkelt.setAttribute('state', 1);
+      linkelt.setAttribute('class', 'open_disclosure_triangle');
+      elt.style.display = 'block';
+   }
+}
+--></script><style type="text/css"><!--.char {background: #ffffff; color:#0000ff;}.comment {background:#ffffff; color:#236e25}.function {background:#ffffff; color:#000000;}.keyword {background:#ffffff; color:#761550;}.number {background: #ffffff; color:#0000ff;}.param {background:#ffffff; color:#000000;}.preprocessor {background:#ffffff; color:#236e25}.string {background: #ffffff; color:#891315;}.template {background:#ffffff; color:#761550;}.type {background:#ffffff; color:#761550;}.var {background:#ffffff; color:#000000;}div {font-size: 10pt; text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #000000;}td {font-size: 10pt; text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #000000;}span.hd_tocAccessSpace { display: block; font-size: 1px; height: 3px; min-height: 3px; }span.hd_tocGroupSpace { display: block; font-size: 1px; height: 3px; min-height: 3px; }span.hd_tocGroup { display: block; font-weight: bold; font-size: 10pt; text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #000000; margin-left: 0px; padding-left: 40px; }span.hd_tocGroup + span.hd_tocAccess { padding-top: 5px; }td.toc_contents_text {font-size: 11pt; text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #000000; }li.tocSubEntry {font-size: 11pt; text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #000000;}p {font-size: 10pt; text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #000000;}a:link {text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #36c;}a:visited {text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #36c;}a:visited:hover {text-decoration: underline; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #36c;}a:active {text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #36c;}a:hover {text-decoration: underline; font-family: lucida grande, geneva, helvetica, arial, sans-serif; color: #36c;}h2.h2tight { margin-top: 0px; padding-top: 0px; }h1 { margin-top: 13px; padding-top: 0px; }h4 {text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; font-size: tiny; font-weight: bold;}h5 {text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; font-size: 10.1pt; font-weight: bold;}pre {text-decoration: none; font-family: Courier, Consolas, monospace; color: #666; font-size: 10pt;}pre a { font-family: Courier, Consolas, monospace; color: #666;font-size: 10pt;}pre a:link { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}pre a:visited { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}pre a:visited:hover { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}pre a:active { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}pre a:hover { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}code {text-decoration: none; font-family: Courier, Consolas, monospace; color: #666;font-size: 10pt;}code a { font-family: Courier, Consolas, monospace; color: #666;font-size: 10pt;}code a:link { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}code a:visited { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}code a:visited:hover { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}code a:active { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}code a:hover { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}tt {text-decoration: none; font-family: Courier, Consolas, monospace; color: #666;font-size: 10pt;}tt a { font-family: Courier, Consolas, monospace; color: #666;font-size: 10pt;}tt a:link { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}tt a:visited { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}tt a:visited:hover { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}tt a:active { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}tt a:hover { font-family: Courier, Consolas, monospace; color: #36c;font-size: 10pt;}body  {text-decoration: none; font-family: Courier, Consolas, monospace; color: #666;font-size: 10pt; padding-left: 0px; padding-top: 0px; margin-left: 0px; margin-top: 0px; border: none; }#hd_outermost_table { margin-left: 0px; border-spacing: 0px; margin-top: 0px; padding-left: 0px; padding-top: 0px; border: none; }#hd_outermost_table > tr { border-spacing: 0px; margin-left: 0px; margin-top: 0px; padding-left: 0px; padding-top: 0px; border: none; }#hd_outermost_table > tr > td { border-spacing: 0px; margin-left: 0px; margin-top: 0px; }#hd_outermost_table > tbody > tr { border-spacing: 0px; margin-left: 0px; margin-top: 0px; padding-left: 0px; padding-top: 0px; border: none; }#hd_outermost_table > tbody > tr > td { border-spacing: 0px; margin-left: 0px; margin-top: 0px; padding-top: 3px; }.afterName { display: none; }.list_indent { margin-left: 40px; }.declaration_indent { margin-left: 40px; margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; min-height: 12px; vertical-align: middle; }.declaration_indent pre { margin-top: 20px; padding-top: 0px; margin-bottom: 20px; padding-bottom: 0px; }.gapBeforeFooter { display: none; }hr { height: 0px; min-height: 0px; border-top: none; border-left: none; border-right: none; border-bottom: 1px solid #909090;}hr.afterHeader { display: none }.param_group_indent { margin-left: 25px; }.param_indent { margin-left: 40px; margin-top: 0px; padding-top: 0px; }.param_indent dl { margin-top: 4px; padding-top: 0px; }dl dd > p:first-child { margin-top: 2px; padding-top: 0px; }.param_indent dl dd > p:first-child { margin-top: 2px; padding-top: 0px; }.group_indent { margin-left: 40px; }.group_desc_indent { margin-left: 20px; }.warning_indent { margin-left: 40px; }.important_indent { margin-left: 40px; }.note_indent { margin-left: 40px; }h3 {       color: #3C4C6C;}.tight {       margin-top: 2px; margin-bottom: 0px;       padding-top: 0px; padding-bottom: 0px;}h3 a {       color: #3C4C6C;	font-size: 16px;	font-style: normal;	font-variant: normal;	font-weight: bold;	height: 0px;	line-height: normal;}.hd_tocAccess { display: block; margin-left: 40px; font-style: italic; font-size: 10px; font-weight: normal; color: #303030; }.tocSubheading { margin-bottom: 4px; }--></style>
+</head>
+<body bgcolor="#ffffff" onload="hidetoc();">
+<!-- headerDoc=cl; uid=//apple_ref/occ/cl/AIError;  name=AIError-->
+<a name="//apple_ref/occ/cl/AIError"></a><table id="hd_outermost_table" height="100%" width="100%"><tr>
+<td valign="top" id="tocMenu" src="toc.html"></td>
+<td id="bodyContents" valign="top">
+<a name="top"></a>
+<h1><a name="AIError">AIError</a></h1>
+<div class="spec_sheet_info_box"><table cellspacing="0" class="specbox">
+<tr>
+<td scope="row"><b>Superclass:</b></td>
+<td><div style="margin-bottom:1px"><div class="content_text">
+<!-- a logicalPath="//apple_ref/occ/cl/NSObject" machineGenerated="true" -->NSObject<!-- /a -->
+</div></div></td>
+</tr>
+<tr>
+<td scope="row"><b>Version:</b></td>
+<td><div style="margin-bottom:1px"><div class="content_text">1.0</div></div></td>
+</tr>
+<tr>
+<td scope="row"><b>Declared In:</b></td>
+<td><div style="margin-bottom:1px"><div class="content_text"><a logicalpath="//apple_ref/doc/header/AIError.h" target="_top" machinegenerated="true" href="../../index.html#//apple_ref/doc/header/AIError.h">AIError.h</a></div></div></td>
+</tr>
+</table></div>
+<h2>Introduction</h2>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/cl/AIError;name=start --><p>This class encapsulates the error information generated by the SDK. An AIError object includes the error code and a meaningful error message.
+</p>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/cl/AIError;name=end --><!-- end discussion -->
+<hr class="afterClassOrHeaderInfo">
+<br><a name="HeaderDoc_constants"></a>
+<h2 class="h2tight">Constants</h2>
+<dl>
+<dt><tt><a href="index.html#//apple_ref/occ/clconst/AIError/kAIAccessDenied" target="_top">kAIAccessDenied</a></tt></dt>
+<dd><p>The resource owner or authorization server denied the
+request.
+</p></dd>
+<dt><tt><a href="index.html#//apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized" target="_top">kAIApplicationNotAuthorized</a></tt></dt>
+<dd><p>A valid refresh token was not found.
+</p></dd>
+<dt><tt><a href="index.html#//apple_ref/occ/clconst/AIError/kAIDeviceError" target="_top">kAIDeviceError</a></tt></dt>
+<dd><p>The SDK encountered an error on the device.
+</p></dd>
+<dt><tt><a href="index.html#//apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted" target="_top">kAIErrorUserInterrupted</a></tt></dt>
+<dd><p>The user canceled the login page.
+</p></dd>
+<dt><tt><a href="index.html#//apple_ref/occ/clconst/AIError/kAIInternalError" target="_top">kAIInternalError</a></tt></dt>
+<dd><p>An internal error occured in the SDK.
+</p></dd>
+<dt><tt><a href="index.html#//apple_ref/occ/clconst/AIError/kAIInvalidInput" target="_top">kAIInvalidInput</a></tt></dt>
+<dd><p>One of the API parameters is invalid.
+</p></dd>
+<dt><tt><a href="index.html#//apple_ref/occ/clconst/AIError/kAINetworkError" target="_top">kAINetworkError</a></tt></dt>
+<dd><p>A network error occurred, possibly due to the user being offline.
+</p></dd>
+<dt><tt><a href="index.html#//apple_ref/occ/clconst/AIError/kAINoError" target="_top">kAINoError</a></tt></dt>
+<dd><p>No error code.
+</p></dd>
+<dt><tt><a href="index.html#//apple_ref/occ/clconst/AIError/kAIServerError" target="_top">kAIServerError</a></tt></dt>
+<dd><p>An error occured on the server.
+</p></dd>
+<dt><tt><a href="index.html#//apple_ref/occ/clconst/AIError/kAIUnauthorizedClient" target="_top">kAIUnauthorizedClient</a></tt></dt>
+<dd><p>The client is not authorized to request an authorization
+code using this method.
+</p></dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=clconst;  uid=//apple_ref/occ/clconst/AIError/kAIAccessDenied;   name=AIError::kAIAccessDenied --><a name="//apple_ref/occ/clconst/AIError/kAIAccessDenied"></a>
+<h3><a name="kAIAccessDenied">kAIAccessDenied</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIAccessDenied;name=start --><!-- begin abstract --></p>
+<p>The resource owner or authorization server denied the
+request.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIAccessDenied;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIAccessDenied;name=start --><span class="keyword">extern</span> <span class="keyword">const</span> <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <a machinegenerated="true" href="index.html#//apple_ref/occ/clconst/AIError/kAIAccessDenied" logicalPath="//apple_ref/occ/econst/kAIAccessDenied //apple_ref/occ/data/AIError/kAIAccessDenied //apple_ref/occ/data/kAIAccessDenied //apple_ref/occ/clconst/AIError/kAIAccessDenied" target="_top"><span class="var">kAIAccessDenied</span></a>; <!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIAccessDenied;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIAccessDenied;name=start --><p>The user declined to authorize the application on the consent page.
+</p>
+<p>In general on getting this type of error, the application can call <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/authorizeUserForScopes:delegate:" logicalPath="//apple_ref/doc/anysymbol/authorizeUserForScopes:delegate:" target="_top">authorizeUserForScopes:delegate:</a> to request authorization.
+The following APIs return this error:
+1. <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/authorizeUserForScopes:delegate:" logicalPath="//apple_ref/doc/anysymbol/authorizeUserForScopes:delegate:" target="_top">authorizeUserForScopes:delegate:</a>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIAccessDenied;name=end --><!-- end discussion -->
+</p>
+<dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=clconst;  uid=//apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized;   name=AIError::kAIApplicationNotAuthorized --><a name="//apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized"></a>
+<h3><a name="kAIApplicationNotAuthorized">kAIApplicationNotAuthorized</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized;name=start --><!-- begin abstract --></p>
+<p>A valid refresh token was not found.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized;name=start --><span class="keyword">extern</span> <span class="keyword">const</span> <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <a machinegenerated="true" href="index.html#//apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized" logicalPath="//apple_ref/occ/econst/kAIApplicationNotAuthorized //apple_ref/occ/data/AIError/kAIApplicationNotAuthorized //apple_ref/occ/data/kAIApplicationNotAuthorized //apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized" target="_top"><span class="var">kAIApplicationNotAuthorized</span></a>; <!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized;name=start --><p>The refresh token held by the SDK is invalid, expired, revoked, does not match the redirection URI used in the authorization request, does not have the required scopes, or was issued to another client.
+</p>
+<p>In general with this type of error, the application can call <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/authorizeUserForScopes:delegate:" logicalPath="//apple_ref/doc/anysymbol/authorizeUserForScopes:delegate:" target="_top">authorizeUserForScopes:delegate:</a> to request authorization, or call <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/clearAuthorizationState:" logicalPath="//apple_ref/doc/anysymbol/clearAuthorizationState:" target="_top">clearAuthorizationState:</a> to logout the user.
+</p>
+<p>The following APIs return this error:
+</p>
+<ol start="1">
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getProfile:" logicalPath="//apple_ref/doc/anysymbol/getProfile:" target="_top">getProfile:</a>
+</p></li>
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getAccessTokenForScopes:withOverrideParams:delegate:" logicalPath="//apple_ref/doc/anysymbol/getAccessTokenForScopes:withOverrideParams:delegate:" target="_top">getAccessTokenForScopes:withOverrideParams:delegate:</a>
+</p></li>
+</ol>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIApplicationNotAuthorized;name=end --><!-- end discussion --><dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=clconst;  uid=//apple_ref/occ/clconst/AIError/kAIDeviceError;   name=AIError::kAIDeviceError --><a name="//apple_ref/occ/clconst/AIError/kAIDeviceError"></a>
+<h3><a name="kAIDeviceError">kAIDeviceError</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIDeviceError;name=start --><!-- begin abstract --></p>
+<p>The SDK encountered an error on the device.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIDeviceError;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIDeviceError;name=start --><span class="keyword">extern</span> <span class="keyword">const</span> <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <a machinegenerated="true" href="index.html#//apple_ref/occ/clconst/AIError/kAIDeviceError" logicalPath="//apple_ref/occ/econst/kAIDeviceError //apple_ref/occ/data/AIError/kAIDeviceError //apple_ref/occ/data/kAIDeviceError //apple_ref/occ/clconst/AIError/kAIDeviceError" target="_top"><span class="var">kAIDeviceError</span></a>; <!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIDeviceError;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIDeviceError;name=start --><p>Currently, the SDK only throws this error when it receives the some error from the keychain service.
+</p>
+<p>In general on getting this type of error, the application can call <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/clearAuthorizationState:" logicalPath="//apple_ref/doc/anysymbol/clearAuthorizationState:" target="_top">clearAuthorizationState:</a> to reset the KeyChain.
+</p>
+<p>The following APIs return this error:
+</p>
+<ol start="1">
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getProfile:" logicalPath="//apple_ref/doc/anysymbol/getProfile:" target="_top">getProfile:</a>
+</p></li>
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getAccessTokenForScopes:withOverrideParams:delegate:" logicalPath="//apple_ref/doc/anysymbol/getAccessTokenForScopes:withOverrideParams:delegate:" target="_top">getAccessTokenForScopes:withOverrideParams:delegate:</a>
+</p></li>
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/authorizeUserForScopes:delegate:" logicalPath="//apple_ref/doc/anysymbol/authorizeUserForScopes:delegate:" target="_top">authorizeUserForScopes:delegate:</a>
+</p></li>
+</ol>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIDeviceError;name=end --><!-- end discussion --><dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=clconst;  uid=//apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted;   name=AIError::kAIErrorUserInterrupted --><a name="//apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted"></a>
+<h3><a name="kAIErrorUserInterrupted">kAIErrorUserInterrupted</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted;name=start --><!-- begin abstract --></p>
+<p>The user canceled the login page.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted;name=start --><span class="keyword">extern</span> <span class="keyword">const</span> <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <a machinegenerated="true" href="index.html#//apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted" logicalPath="//apple_ref/occ/econst/kAIErrorUserInterrupted //apple_ref/occ/data/AIError/kAIErrorUserInterrupted //apple_ref/occ/data/kAIErrorUserInterrupted //apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted" target="_top"><span class="var">kAIErrorUserInterrupted</span></a>; <!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted;name=start --><p>The user pressed cancel while on the login or the consent page.
+</p>
+<p>In general on getting this type of error, the application can allow user to login again.
+The following APIs return this error:
+1. <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/authorizeUserForScopes:delegate:" logicalPath="//apple_ref/doc/anysymbol/authorizeUserForScopes:delegate:" target="_top">authorizeUserForScopes:delegate:</a>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIErrorUserInterrupted;name=end --><!-- end discussion -->
+</p>
+<dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=clconst;  uid=//apple_ref/occ/clconst/AIError/kAIInternalError;   name=AIError::kAIInternalError --><a name="//apple_ref/occ/clconst/AIError/kAIInternalError"></a>
+<h3><a name="kAIInternalError">kAIInternalError</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIInternalError;name=start --><!-- begin abstract --></p>
+<p>An internal error occured in the SDK.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIInternalError;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIInternalError;name=start --><span class="keyword">extern</span> <span class="keyword">const</span> <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <a machinegenerated="true" href="index.html#//apple_ref/occ/clconst/AIError/kAIInternalError" logicalPath="//apple_ref/occ/econst/kAIInternalError //apple_ref/occ/data/AIError/kAIInternalError //apple_ref/occ/data/kAIInternalError //apple_ref/occ/clconst/AIError/kAIInternalError" target="_top"><span class="var">kAIInternalError</span></a>; <!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIInternalError;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIInternalError;name=start --><p>In general, these errors cannot be handled by application. Please contact us to report recurring internal errors.
+</p>
+<p>The following APIs return this error:
+</p>
+<ol start="1">
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getProfile:" logicalPath="//apple_ref/doc/anysymbol/getProfile:" target="_top">getProfile:</a>
+</p></li>
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getAccessTokenForScopes:withOverrideParams:delegate:" logicalPath="//apple_ref/doc/anysymbol/getAccessTokenForScopes:withOverrideParams:delegate:" target="_top">getAccessTokenForScopes:withOverrideParams:delegate:</a>
+</p></li>
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/authorizeUserForScopes:delegate:" logicalPath="//apple_ref/doc/anysymbol/authorizeUserForScopes:delegate:" target="_top">authorizeUserForScopes:delegate:</a>
+</p></li>
+</ol>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIInternalError;name=end --><!-- end discussion --><hr class="betweenAPIEntries">
+<!-- headerDoc=clconst;  uid=//apple_ref/occ/clconst/AIError/kAIInvalidInput;   name=AIError::kAIInvalidInput --><a name="//apple_ref/occ/clconst/AIError/kAIInvalidInput"></a>
+<h3><a name="kAIInvalidInput">kAIInvalidInput</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIInvalidInput;name=start --><!-- begin abstract --></p>
+<p>One of the API parameters is invalid.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIInvalidInput;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIInvalidInput;name=start --><span class="keyword">extern</span> <span class="keyword">const</span> <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <a machinegenerated="true" href="index.html#//apple_ref/occ/clconst/AIError/kAIInvalidInput" logicalPath="//apple_ref/occ/econst/kAIInvalidInput //apple_ref/occ/data/AIError/kAIInvalidInput //apple_ref/occ/data/kAIInvalidInput //apple_ref/occ/clconst/AIError/kAIInvalidInput" target="_top"><span class="var">kAIInvalidInput</span></a>; <!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIInvalidInput;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIInvalidInput;name=start --><p>The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed.
+</p>
+<p>Check your method parameters and try again. This error is expected from all APIs.
+</p>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIInvalidInput;name=end --><!-- end discussion -->
+<dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=clconst;  uid=//apple_ref/occ/clconst/AIError/kAINetworkError;   name=AIError::kAINetworkError --><a name="//apple_ref/occ/clconst/AIError/kAINetworkError"></a>
+<h3><a name="kAINetworkError">kAINetworkError</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAINetworkError;name=start --><!-- begin abstract --></p>
+<p>A network error occurred, possibly due to the user being offline.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAINetworkError;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAINetworkError;name=start --><span class="keyword">extern</span> <span class="keyword">const</span> <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <a machinegenerated="true" href="index.html#//apple_ref/occ/clconst/AIError/kAINetworkError" logicalPath="//apple_ref/occ/econst/kAINetworkError //apple_ref/occ/data/AIError/kAINetworkError //apple_ref/occ/data/kAINetworkError //apple_ref/occ/clconst/AIError/kAINetworkError" target="_top"><span class="var">kAINetworkError</span></a>; <!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAINetworkError;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAINetworkError;name=start --><p>In general on getting this error the application can ask the user to check their network connections.
+</p>
+<p>The following APIs return this error:
+</p>
+<ol start="1">
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getProfile:" logicalPath="//apple_ref/doc/anysymbol/getProfile:" target="_top">getProfile:</a>
+</p></li>
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getAccessTokenForScopes:withOverrideParams:delegate:" logicalPath="//apple_ref/doc/anysymbol/getAccessTokenForScopes:withOverrideParams:delegate:" target="_top">getAccessTokenForScopes:withOverrideParams:delegate:</a>
+</p></li>
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/authorizeUserForScopes:delegate:" logicalPath="//apple_ref/doc/anysymbol/authorizeUserForScopes:delegate:" target="_top">authorizeUserForScopes:delegate:</a>
+</p></li>
+</ol>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAINetworkError;name=end --><!-- end discussion --><dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=clconst;  uid=//apple_ref/occ/clconst/AIError/kAINoError;   name=AIError::kAINoError --><a name="//apple_ref/occ/clconst/AIError/kAINoError"></a>
+<h3><a name="kAINoError">kAINoError</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAINoError;name=start --><!-- begin abstract --></p>
+<p>No error code.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAINoError;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAINoError;name=start --><span class="keyword">extern</span> <span class="keyword">const</span> <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <a machinegenerated="true" href="index.html#//apple_ref/occ/clconst/AIError/kAINoError" logicalPath="//apple_ref/occ/econst/kAINoError //apple_ref/occ/data/AIError/kAINoError //apple_ref/occ/data/kAINoError //apple_ref/occ/clconst/AIError/kAINoError" target="_top"><span class="var">kAINoError</span></a>; <!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAINoError;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAINoError;name=start --><p>Initial value to which the error object is initialized.
+</p>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAINoError;name=end --><!-- end discussion -->
+<dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=clconst;  uid=//apple_ref/occ/clconst/AIError/kAIServerError;   name=AIError::kAIServerError --><a name="//apple_ref/occ/clconst/AIError/kAIServerError"></a>
+<h3><a name="kAIServerError">kAIServerError</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIServerError;name=start --><!-- begin abstract --></p>
+<p>An error occured on the server.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIServerError;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIServerError;name=start --><span class="keyword">extern</span> <span class="keyword">const</span> <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <a machinegenerated="true" href="index.html#//apple_ref/occ/clconst/AIError/kAIServerError" logicalPath="//apple_ref/occ/econst/kAIServerError //apple_ref/occ/data/AIError/kAIServerError //apple_ref/occ/data/kAIServerError //apple_ref/occ/clconst/AIError/kAIServerError" target="_top"><span class="var">kAIServerError</span></a>; <!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIServerError;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIServerError;name=start --><p>The server encountered an error while completing the request, or the SDK received an unknown response from the server.
+</p>
+<p>In general on getting this type of error, the application can allow user to retry the last action.
+The following APIs return this error:
+</p>
+<ol start="1">
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getProfile:" logicalPath="//apple_ref/doc/anysymbol/getProfile:" target="_top">getProfile:</a>
+</p></li>
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getAccessTokenForScopes:withOverrideParams:delegate:" logicalPath="//apple_ref/doc/anysymbol/getAccessTokenForScopes:withOverrideParams:delegate:" target="_top">getAccessTokenForScopes:withOverrideParams:delegate:</a>
+</p></li>
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/authorizeUserForScopes:delegate:" logicalPath="//apple_ref/doc/anysymbol/authorizeUserForScopes:delegate:" target="_top">authorizeUserForScopes:delegate:</a>
+</p></li>
+</ol>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIServerError;name=end --><!-- end discussion --><dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=clconst;  uid=//apple_ref/occ/clconst/AIError/kAIUnauthorizedClient;   name=AIError::kAIUnauthorizedClient --><a name="//apple_ref/occ/clconst/AIError/kAIUnauthorizedClient"></a>
+<h3><a name="kAIUnauthorizedClient">kAIUnauthorizedClient</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIUnauthorizedClient;name=start --><!-- begin abstract --></p>
+<p>The client is not authorized to request an authorization
+code using this method.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/clconst/AIError/kAIUnauthorizedClient;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIUnauthorizedClient;name=start --><span class="keyword">extern</span> <span class="keyword">const</span> <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <a machinegenerated="true" href="index.html#//apple_ref/occ/clconst/AIError/kAIUnauthorizedClient" logicalPath="//apple_ref/occ/econst/kAIUnauthorizedClient //apple_ref/occ/data/AIError/kAIUnauthorizedClient //apple_ref/occ/data/kAIUnauthorizedClient //apple_ref/occ/clconst/AIError/kAIUnauthorizedClient" target="_top"><span class="var">kAIUnauthorizedClient</span></a>; <!-- headerDoc=declaration;uid=//apple_ref/occ/clconst/AIError/kAIUnauthorizedClient;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIUnauthorizedClient;name=start --><p>The application is not authorized to make this call. Make sure the registered Bundle identifier matches your application, and that you have a valid APIKey property in the application property list.
+</p>
+<p>The following APIs return this error:
+</p>
+<ol start="1">
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/getAccessTokenForScopes:withOverrideParams:delegate:" logicalPath="//apple_ref/doc/anysymbol/getAccessTokenForScopes:withOverrideParams:delegate:" target="_top">getAccessTokenForScopes:withOverrideParams:delegate:</a>
+</p></li>
+<li><p> <a href="../../../AIMobileLib_h/Classes/AIMobileLib/index.html#//apple_ref/occ/clm/AIMobileLib/authorizeUserForScopes:delegate:" logicalPath="//apple_ref/doc/anysymbol/authorizeUserForScopes:delegate:" target="_top">authorizeUserForScopes:delegate:</a>
+</p></li>
+</ol>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/clconst/AIError/kAIUnauthorizedClient;name=end --><!-- end discussion --><dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<hr class="betweenSections">
+<a name="HeaderDoc_props"></a>
+<h2 class="h2tight">Properties</h2>
+<dl>
+<dt><tt><a href="index.html#//apple_ref/occ/instp/AIError/code" target="_top">code</a></tt></dt>
+<dd>
+<p>The error code for the error encountered by the API.
+</p>
+</dd>
+<dt><tt><a href="index.html#//apple_ref/occ/instp/AIError/message" target="_top">message</a></tt></dt>
+<dd><p>The readable message corresponding to the error code.
+</p></dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=instp;  uid=//apple_ref/occ/instp/AIError/code;   name=AIError::code --><a name="//apple_ref/occ/instp/AIError/code"></a>
+<h3><a name="code">code</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/instp/AIError/code;name=start --><!-- begin abstract --></p>
+<p>The error code for the error encountered by the API.
+</p>
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/instp/AIError/code;name=end -->
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/instp/AIError/code;name=start -->@property <!-- a logicalPath="//apple_ref/occ/cl/NSUInteger //apple_ref/occ/tdef/NSUInteger //apple_ref/occ/tag/NSUInteger //apple_ref/occ/struct/NSUInteger //apple_ref/occ/intf/NSUInteger //apple_ref/doc/anysymbol/NSUInteger" machineGenerated="true" --><span class="type">NSUInteger</span><!-- /a --> <!-- a logicalPath="//apple_ref/occ/econst/code //apple_ref/occ/data/AIError/code //apple_ref/occ/data/code //apple_ref/occ/clconst/AIError/code " machineGenerated="true" --><span class="var">code</span><!-- /a -->; <!-- headerDoc=declaration;uid=//apple_ref/occ/instp/AIError/code;name=end --></pre>
+</div>
+<dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<hr class="betweenAPIEntries">
+<!-- headerDoc=instp;  uid=//apple_ref/occ/instp/AIError/message;   name=AIError::message --><a name="//apple_ref/occ/instp/AIError/message"></a>
+<h3><a name="message">message</a></h3>
+<hr class="afterName">
+<p><!-- headerDoc=abstract;uid=//apple_ref/occ/instp/AIError/message;name=start --><!-- begin abstract --></p>
+<p>The readable message corresponding to the error code.
+<!-- end abstract --><!-- headerDoc=abstract;uid=//apple_ref/occ/instp/AIError/message;name=end --></p>
+<div class="declaration_indent">
+<pre><!-- headerDoc=declaration;uid=//apple_ref/occ/instp/AIError/message;name=start -->@property (<span class="param">retain</span>) <!-- a logicalPath="//apple_ref/occ/cl/NSString //apple_ref/occ/tdef/NSString //apple_ref/occ/tag/NSString //apple_ref/occ/struct/NSString //apple_ref/occ/intf/NSString //apple_ref/doc/anysymbol/NSString" machineGenerated="true" --><span class="type">NSString</span><!-- /a --><span class="type">*</span> <!-- a logicalPath="//apple_ref/occ/econst/message //apple_ref/occ/data/AIError/message //apple_ref/occ/data/message //apple_ref/occ/clconst/AIError/message " machineGenerated="true" --><span class="var">message</span><!-- /a -->; <!-- headerDoc=declaration;uid=//apple_ref/occ/instp/AIError/message;name=end --></pre>
+</div>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Discussion</font></h5>
+<!-- begin discussion --><!-- headerDoc=discussion;uid=//apple_ref/occ/instp/AIError/message;name=start --><p>The message provides more information about the exact type of error encountered by the API.
+</p>
+<!-- headerDoc=discussion;uid=//apple_ref/occ/instp/AIError/message;name=end --><!-- end discussion -->
+<dl>
+<dt><b>Availability</b></dt>
+<dd>1.0
+</dd>
+</dl>
+<p class="gapBeforeFooter">&nbsp;</p>
+<hr class="afterFooter">
+<div class="hd_copyright_and_timestamp">
+<p class="hd_timestamp">Last Updated: Monday, May 27, 2013
+</p>
+</div>
+</td>
+</tr></table>
+</body>
+</html>
