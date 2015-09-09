@@ -1,5 +1,5 @@
 /**
- * Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy
  * of the License is located at
@@ -114,6 +114,12 @@ extern const NSUInteger kAIUnauthorizedClient;
  Generally these errors cannot be handled by app. Please contact us to report recurring internal errors.
 */
 extern const NSUInteger kAIInternalError;
+
+/**
+ An version error occurred while the SDK version is not supported for LWA SSO.
+ Only `[AIMobileLib authorizeUserForScopes:delegate:]` can return this error.
+ */
+extern const NSUInteger kAIVersionDenied;
 
 #pragma mark - AIError
 

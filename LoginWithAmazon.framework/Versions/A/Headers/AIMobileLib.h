@@ -1,5 +1,5 @@
 /**
- * Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy
  * of the License is located at
@@ -22,6 +22,44 @@
   method to refresh the access token.
 */
 extern const NSString *kForceRefresh;
+
+/**
+  Key name for defining whether sandbox mode is on.
+ 
+  Pass this key with a string value of "YES" to `authorizeUserForScopes:delegate:options:` to switch to the sandbox mode.
+ */
+extern const NSString *kAIOptionSandboxMode;
+
+/**
+  Key name for defining the scope data parameter.
+  
+  Pass this key with a Json encoded string of scope data to`authorizeUserForScopes:delegate:options` as required by certain 
+  types of Amazon services.
+*/
+extern const NSString *kAIOptionScopeData;
+
+/**
+  Key name for defining whether to return authorization code.
+ 
+  Pass this key with a BOOL value of `YES` to `authorizeUserForScopes:delegate:options` to get back an authorization code.
+*/
+extern const NSString *kAIOptionReturnAuthCode;
+
+/**
+  Key name for defining the SPOP code challenge parameter.
+ 
+ Pass this key with a string value into the `options` object used when calling `authorizeUserForScopes:delegate:options`
+ with kAIOptionReturnAuthCode as `YES`.
+*/
+extern const NSString *kAIOptionCodeChallenge;
+
+/**
+  Key name for defining the SPOP code challenge method parameter. (Optional)
+ 
+  Pass this key with a string value into the `options` object used when calling `authorizeUserForScopes:delegate:options`
+  with kAIOptionReturnAuthCode as `YES`.
+ */
+extern const NSString *kAIOptionCodeChallengeMethod;
 
 /**
   AIMobileLib is a static class that contains Login with Amazon APIs.
@@ -66,13 +104,18 @@ extern const NSString *kForceRefresh;
   - `kAINetworkError` : A network error occurred, possibly due to the user being offline.
   - `kAIUnauthorizedClient` : The app is not authorized to make this call.
   - `kAIInternalError` : An internal error occurred in the SDK.  You can allow the user to login again.
-
+ 
   @param scopes The profile scopes that the app is requesting from the user. The first scope must be "profile".
                 "postal_code" is an optional second scope.
   @param authenticationDelegate A delegate implementing the `AIAuthenticationDelegate` protocol to receive success and
                                 failure messages.
+  @param options An optional dictionary of options.
   @since 1.0
 */
++ (void)authorizeUserForScopes:(NSArray *)scopes
+                      delegate:(id <AIAuthenticationDelegate>)authenticationDelegate
+                       options:(NSDictionary *)options;
+
 + (void)authorizeUserForScopes:(NSArray *)scopes delegate:(id <AIAuthenticationDelegate>)authenticationDelegate;
 
 /**
@@ -168,10 +211,13 @@ extern const NSString *kForceRefresh;
   - `kAINetworkError` : A network error occurred, possibly due to the user being offline.
   - `kAIInternalError` : An internal error occurred in the SDK.  You can allow the user to login again.
 
- @param authenticationDelegate A delegate implementing the `AIAuthenticationDelegate` protocol to receive success and
+  @param authenticationDelegate A delegate implementing the `AIAuthenticationDelegate` protocol to receive success and
                                failure messages.
- @since 1.0
+  @param options An optional dictionary of options.
+  @since 1.0
 */
++ (void)getProfile:(id <AIAuthenticationDelegate>)authenticationDelegate withOptions:(NSDictionary *)options;
+
 + (void)getProfile:(id <AIAuthenticationDelegate>)authenticationDelegate;
 
 /**
@@ -201,4 +247,30 @@ extern const NSString *kForceRefresh;
 */
 + (BOOL)handleOpenURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
 
+/**
+  Helper function for `authorizeUserForScopes:delegate:options:`.
+
+  Use this function to get the clientID encoded in the API key your app uses to configure Login with Amazon SDK
+  for iOS. This clientId is your client identifier that Login with Amazon SDK uses to authorize customers for your application.
+  If you are requesting to get an authorization code in return from the `[authorizeUserForScopes:delegate:options:]`
+  API, you will need this value to call Login with Amazon Authorize Service in exchange for refresh and access tokens.
+ 
+  @return Return the clientId in need for calling Login with Amazon Authorize Service in exchange for refresh and access tokens.
+  @since 2.0
+*/
+
++ (NSString *) getClientId;
+
+/**
+  Helper function for `authorizeUserForScopes:delegate:options:`.
+ 
+  Use this function to get the redirect_uri that Login with Amazon SDK uses in the `[authorizeUserForScopes:delegate:options]`
+  API. If you are requesting to get an authorization code in return, this value is required to call Login with Amazon Authorize
+  service in exchange for refresh and access tokens.
+ 
+  @return Return the redirect_uri used in the `[authorizeUserForScopes:delegate:options]` API.
+  @since 2.0
+*/
+
++ (NSString *) getRedirectUri;
 @end

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/APIResult.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/APIResult</TokenIdentifier>
+			<Abstract type="html">  This class encapsulates success information from an AIMobileLib API call.</Abstract>
+			<DeclaredIn>AIAuthenticationDelegate.h</DeclaredIn>
+            
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/APIResult/setResult:</TokenIdentifier>
+			<Abstract type="html">  The result object returned from the API on success. The API result can be nil, an NSDictionary, or an NSString
+  depending upon which API created the APIResult.</Abstract>
+			<DeclaredIn>AIAuthenticationDelegate.h</DeclaredIn>
+			
+			<Declaration>@property (retain) id result</Declaration>
+			
+			
+			<Anchor>//api/name/result</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/APIResult/result</TokenIdentifier>
+			<Abstract type="html">  The result object returned from the API on success. The API result can be nil, an NSDictionary, or an NSString
+  depending upon which API created the APIResult.</Abstract>
+			<DeclaredIn>AIAuthenticationDelegate.h</DeclaredIn>
+			
+			<Declaration>@property (retain) id result</Declaration>
+			
+			
+			<Anchor>//api/name/result</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/APIResult/result</TokenIdentifier>
+			<Abstract type="html">  The result object returned from the API on success. The API result can be nil, an NSDictionary, or an NSString
+  depending upon which API created the APIResult.</Abstract>
+			<DeclaredIn>AIAuthenticationDelegate.h</DeclaredIn>
+			
+			<Declaration>@property (retain) id result</Declaration>
+			
+			
+			<Anchor>//api/name/result</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/APIResult/setApi:</TokenIdentifier>
+			<Abstract type="html">  The API returning the result.</Abstract>
+			<DeclaredIn>AIAuthenticationDelegate.h</DeclaredIn>
+			
+			<Declaration>@property API api</Declaration>
+			
+			
+			<Anchor>//api/name/api</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/APIResult/api</TokenIdentifier>
+			<Abstract type="html">  The API returning the result.</Abstract>
+			<DeclaredIn>AIAuthenticationDelegate.h</DeclaredIn>
+			
+			<Declaration>@property API api</Declaration>
+			
+			
+			<Anchor>//api/name/api</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/APIResult/api</TokenIdentifier>
+			<Abstract type="html">  The API returning the result.</Abstract>
+			<DeclaredIn>AIAuthenticationDelegate.h</DeclaredIn>
+			
+			<Declaration>@property API api</Declaration>
+			
+			
+			<Anchor>//api/name/api</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

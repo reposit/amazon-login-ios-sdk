@@ -1,5 +1,5 @@
 /**
- * Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy
  * of the License is located at
@@ -30,7 +30,9 @@ typedef NS_ENUM(NSUInteger, API) {
     /** Refers to `[AIMobileLib clearAuthorizationState:]` */
     kAPIClearAuthorizationState = 3,
     /** Refers to `[AIMobileLib getProfile:]` */
-    kAPIGetProfile = 4
+    kAPIGetProfile = 4,
+    /** Refers to `[AIMobileLib authorizeUserForScopes:delegate:options]` */
+    kAPIGetAuthorizationCode = 5
 };
 
 #pragma mark - APIResult
